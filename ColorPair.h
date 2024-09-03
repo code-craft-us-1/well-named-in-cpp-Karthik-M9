@@ -3,8 +3,8 @@
 
 namespace TelCoColorCoder
 {
-    enum MajorColor { WHITE=1, RED=2, BLACK=3, YELLOW=4, VIOLET=5 };
-    enum MinorColor { BLUE=1, ORANGE=2, GREEN=3, BROWN=4, SLATE=5 };
+    enum MajorColor { WHITE, RED, BLACK, YELLOW, VIOLET };
+    enum MinorColor { BLUE, ORANGE, GREEN, BROWN, SLATE };
 
     class ColorPair {
         MajorColor majorColor;
