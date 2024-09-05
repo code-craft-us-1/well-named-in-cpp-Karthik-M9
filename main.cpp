@@ -31,13 +31,11 @@ int main() {
 
     int pairNo = 1;
     std::cout << "*************** Manual ***************" << std::endl;
-    for (auto i = 1; i < TelCoColorCoder::MajorColor::maxSizeMajorColor; i++)
+    for (auto i = 0; i < TelCoColorCoder::MajorColor::maxSizeMajorColor; i++)
     {
-        const auto majorColor = static_cast<TelCoColorCoder::MajorColor>(i - 1 / TelCoColorCoder::MajorColor::maxSizeMajorColor);
-        for (auto j = 1; j < TelCoColorCoder::MinorColor::maxSizeMinorColor; j++)
+        for (auto j = 0; j < TelCoColorCoder::MinorColor::maxSizeMinorColor; j++)
         {
-            const auto minorColor = static_cast<TelCoColorCoder::MinorColor>(j-1 % TelCoColorCoder::MinorColor::maxSizeMinorColor);
-            TelCoColorCoder::ColorPair colorPairTemp = { majorColor,minorColor };
+            TelCoColorCoder::ColorPair colorPairTemp = { static_cast<TelCoColorCoder::MajorColor>(i),static_cast<TelCoColorCoder::MinorColor>(j) };
             std::cout << pairNo++ << " " << colorPairTemp.getColorPairInString()<< std::endl;
         }        
     }
