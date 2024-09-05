@@ -10,7 +10,7 @@ namespace TelCoColorCoder {
 
 
     ColorPair GetColorPairFromNumber(const int pairNumber) {
-        auto zeroBasedNumber = pairNumber - 1;
+        const auto zeroBasedNumber = pairNumber - 1;
         auto majorColor = static_cast<MajorColor>(zeroBasedNumber / numberOfMinorColors);
         auto minorColor = static_cast<MinorColor>(zeroBasedNumber % numberOfMinorColors);
         return { majorColor, minorColor };
