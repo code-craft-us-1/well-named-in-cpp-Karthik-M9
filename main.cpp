@@ -15,29 +15,35 @@ void testNumberToPair(const int pairNumber,
 void testPairToNumber(
     const TelCoColorCoder::MajorColor major,
     const TelCoColorCoder::MinorColor minor,
-    const int expectedPairNumber)
-{
+    const int expectedPairNumber){
     const int pairNumber = GetNumberFromColorPair(major, minor);
     std::cout << "Got pair number " << pairNumber << std::endl;
     assert(pairNumber == expectedPairNumber);
 }
 
-int main() {
+void unitTests(){
     testNumberToPair(4, TelCoColorCoder::MajorColor::WHITE, TelCoColorCoder::MinorColor::BROWN);
     testNumberToPair(5, TelCoColorCoder::MajorColor::WHITE, TelCoColorCoder::MinorColor::SLATE);
 
     testPairToNumber(TelCoColorCoder::MajorColor::BLACK, TelCoColorCoder::MinorColor::ORANGE, 12);
     testPairToNumber(TelCoColorCoder::MajorColor::VIOLET, TelCoColorCoder::MinorColor::SLATE, 25);
+}
 
-    int pairNo = 1;
-    std::cout << "*************** Manual ***************" << std::endl;
+void printManual(){
+    auto pairNo = 1;
+    std::cout << "**************** Manual ***************" << '\n';
     for (auto i = 0; i < TelCoColorCoder::MajorColor::maxSizeMajorColor; i++)
     {
         for (auto j = 0; j < TelCoColorCoder::MinorColor::maxSizeMinorColor; j++)
         {
             TelCoColorCoder::ColorPair colorPairTemp = { static_cast<TelCoColorCoder::MajorColor>(i),static_cast<TelCoColorCoder::MinorColor>(j) };
-            std::cout << pairNo++ << " " << colorPairTemp.getColorPairInString()<< std::endl;
-        }        
+            std::cout << pairNo++ << " " << colorPairTemp.getColorPairInString() << '\n';
+        }
     }
+}
+
+int main() {
+    unitTests();
+    printManual();
     return 0;
 }
